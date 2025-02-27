@@ -1,6 +1,6 @@
 ﻿namespace DemoexamGUI.Domain
 {
-    internal class ProductType
+    public class ProductType
     {
         public int Id { get; set; }
         public string Type { get; set; }
