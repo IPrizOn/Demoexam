@@ -4,6 +4,8 @@
              xmlns:local="clr-namespace:DemoexamGUI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Control">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+        </Style>
     </Application.Resources>
 </Application>

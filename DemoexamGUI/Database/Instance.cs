@@ -1,11 +1,15 @@
-﻿namespace DemoexamGUI.Database
+﻿using Npgsql;
+
+namespace DemoexamGUI.Database
 {
     internal class Instance
     {
-        private string connection;
+        private static string connectionString = "Host=localhost;Port=5432;Username=postgres;Password=13799731;Database=partners_exam";
 
-        public string GetConnection()
+        public static NpgsqlConnection GetConnection()
         {
+            var connection = new NpgsqlConnection(connectionString);
+
             return connection;
         }
     }

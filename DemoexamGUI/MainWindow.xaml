@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoexamGUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280">
+        Title="Учёт партнёров" Height="500" Width="600" MinHeight="500" MinWidth="600">
     <Grid>
-        <Button Content="Нажать" Click="Button_Click" Width="100" Height="100" FontSize="14"/>
+        <ListBox ItemsSource="{Binding PartnersDataOutList}" HorizontalContentAlignment="Stretch" Margin="10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0" Margin="20,10,10,10">
+                                <TextBlock Text="{Binding TypeAndName}" FontSize="14" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Director}" FontSize="14"/>
+                                <TextBlock Text="{Binding Phone}" FontSize="14"/>
+                                <TextBlock Text="{Binding Rating}" FontSize="14"/>
+                            </StackPanel>
+                            <TextBlock Grid.Column="1" Text="{Binding Percentage}" FontSize="14" VerticalAlignment="Top" Margin="10,10,40,10"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
