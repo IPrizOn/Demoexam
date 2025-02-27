@@ -12,4 +12,9 @@
     <PackageReference Include="Npgsql" Version="9.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\WIndows\" />
+    <Folder Include="Views\Pages\" />
+  </ItemGroup>
+
 </Project>
