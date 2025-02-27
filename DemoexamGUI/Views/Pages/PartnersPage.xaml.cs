@@ -1,19 +1,23 @@
-﻿using DemoexamGUI.Database;
+﻿using DemoexamGUI.AppData;
+using DemoexamGUI.Database;
 using DemoexamGUI.Domain;
-using System.Windows;
+using DemoexamGUI.Views.Windows;
+using System.Windows.Controls;
 
-namespace DemoexamGUI
+namespace DemoexamGUI.Views.Pages
 {
-    public partial class MainWindow : Window
+    public partial class PartnersPage : Page
     {
         private List<Partner> partnersList;
         private List<PartnerProduct> partnerProductsList;
 
         public List<PartnersDataOut> PartnersDataOutList { get; set; }
 
-        public MainWindow()
+        public PartnersPage()
         {
             InitializeComponent();
+
+            
 
             partnersList = GetData.GetPartners();
             partnerProductsList = GetData.GetPartnerProduct();
@@ -43,18 +47,29 @@ namespace DemoexamGUI
 
             foreach (PartnerProduct partnerProduct in partnerProductsList)
             {
-                if(partnerProduct.PartnerId == partner.Id)
+                if (partnerProduct.PartnerId == partner.Id)
                 {
                     soldProducts += partnerProduct.Count;
                 }
             }
 
-            discount = 
+            discount =
                 soldProducts < 10000 ? 0 :
                 soldProducts < 50000 ? 5 :
                 soldProducts < 300000 ? 10 : 15;
 
             return discount;
+        }
+
+        private void ButtonBack_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            HomeObjects.frameHome.Navigate(new HomePage());
+        }
+
+        private void ButtonAddPartnerWindow_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            AddPartnerWindow addPartnerWindow = new AddPartnerWindow();
+            addPartnerWindow.Show();
         }
     }
 
