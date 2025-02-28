@@ -1,22 +1,34 @@
 ﻿using DemoexamGUI.Database;
+using DemoexamGUI.Domain;
 using System.Windows;
 
 namespace DemoexamGUI.Views.Windows
 {
-    public partial class AddPartnerWindow : Window
+    public partial class UpdatePartnerWindow : Window
     {
+        private Partner partner;
+
         private List<string> partnerTypes = new List<string> { "ЗАО", "ООО", "ПАО", "ОАО" };
 
-        public AddPartnerWindow()
+        public UpdatePartnerWindow(Partner partner)
         {
             InitializeComponent();
+
+            this.partner = partner;
 
             loadData();
         }
 
         private void loadData()
         {
+            TextBoxName.Text = "";
             ComboBoxType.ItemsSource = partnerTypes;
+            TextBoxRating.Text = "";
+            TextBoxAddress.Text = "";
+            TextBoxDirector.Text = "";
+            TextBoxPhone.Text = "";
+            TextBoxEmail.Text = "";
+            TextBoxINN.Text = "";
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -33,7 +45,7 @@ namespace DemoexamGUI.Views.Windows
             var inn = TextBoxINN.Text;
             var rating = TextBoxRating.Text;
 
-            //AddData();
+            //UpdateData();
 
             DialogResult = true;
         }

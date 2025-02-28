@@ -8,33 +8,21 @@ namespace DemoexamGUI.Views.Pages
 {
     public partial class PartnersPage : Page
     {
-        private List<Partner> partnersList;
-        private List<PartnerProduct> partnerProductsList;
+        public List<Partner> PartnersList { get; set; }
 
-        public List<PartnersDataOut> PartnersDataOutList { get; set; }
+        private List<PartnerProduct> partnerProductsList;
 
         public PartnersPage()
         {
             InitializeComponent();
 
-            
+            PartnersList = GetData.GetPartnersList();
+            partnerProductsList = GetData.GetPartnerProductsList();
+      
 
-            partnersList = GetData.GetPartners();
-            partnerProductsList = GetData.GetPartnerProduct();
-
-            PartnersDataOutList = new List<PartnersDataOut>();
-            foreach (Partner partner in partnersList)
+            foreach (var partner in PartnersList)
             {
-                var partnerDataOut = new PartnersDataOut
-                {
-                    TypeAndName = $"{partner.Type} | {partner.Name}",
-                    Director = $"{partner.DirectorF} {partner.DirectorI} {partner.DirectorO}",
-                    Phone = $"+7 {partner.Phone}",
-                    Rating = $"Рейтинг: {partner.Rating}",
-                    Percentage = $"{calculateDiscount(partner)}%",
-                };
-
-                PartnersDataOutList.Add(partnerDataOut);
+                partner.Percentage = $"{calculateDiscount(partner)}%";
             }
 
             DataContext = this;
@@ -66,19 +54,27 @@ namespace DemoexamGUI.Views.Pages
             HomeObjects.frameHome.Navigate(new HomePage());
         }
 
-        private void ButtonAddPartnerWindow_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void ButtonAddPartner_Click(object sender, System.Windows.RoutedEventArgs e)
         {
             AddPartnerWindow addPartnerWindow = new AddPartnerWindow();
-            addPartnerWindow.Show();
+            if (addPartnerWindow.ShowDialog() == true)
+            {
+                DataContext = this;
+            }
         }
-    }
 
-    public class PartnersDataOut
-    {
-        public string TypeAndName { get; set; }
-        public string Director { get; set; }
-        public string Phone { get; set; }
-        public string Rating { get; set; }
-        public string Percentage { get; set; }
+        private void ListPartners_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (PartnersListBox.SelectedItem is Partner selectedPartner) 
+            {
+                UpdatePartnerWindow addPartnerWindow = new UpdatePartnerWindow(selectedPartner);
+                if (addPartnerWindow.ShowDialog() == true)
+                {
+                   DataContext = this;
+                }
+            }
+
+            PartnersListBox.SelectedItem = null;
+        }
     }
 }

@@ -5,7 +5,7 @@ namespace DemoexamGUI.Database
 {
     public class GetData
     {
-        public static List<Partner> GetPartners()
+        public static List<Partner> GetPartnersList()
         {
             var partnersList = new List<Partner>();
 
@@ -39,7 +39,7 @@ namespace DemoexamGUI.Database
             return partnersList;
         }
 
-        public static List<PartnerProduct> GetPartnerProduct()
+        public static List<PartnerProduct> GetPartnerProductsList()
         {
             var partnerProductsList = new List<PartnerProduct>();
 

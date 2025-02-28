@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DemoexamGUI.Views.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="600"
       Title="Учёт партнёров">
 
     <Grid Background="White">
@@ -21,10 +21,10 @@
         
         <DockPanel Grid.Row="0">
             <Button DockPanel.Dock="Left" Content="Назад" FontSize="14" Background="Wheat" Margin="25,5,5,5" HorizontalAlignment="Left" MinHeight="30" MinWidth="60" Click="ButtonBack_Click"/>
-            <Button DockPanel.Dock="Right" Content="Добавить" FontSize="14" Background="Wheat" Margin="5,5,25,5" HorizontalAlignment="Right" MinHeight="30" MinWidth="80" Click="ButtonAddPartnerWindow_Click"/>
+            <Button DockPanel.Dock="Right" Content="Добавить" FontSize="14" Background="Wheat" Margin="5,5,25,5" HorizontalAlignment="Right" MinHeight="30" MinWidth="80" Click="ButtonAddPartner_Click"/>
         </DockPanel>
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding PartnersDataOutList}" HorizontalContentAlignment="Stretch" Margin="10">
+        <ListBox x:Name="PartnersListBox" Grid.Row="1" ItemsSource="{Binding PartnersList}" SelectionChanged="ListPartners_SelectionChanged" HorizontalContentAlignment="Stretch" Margin="10">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="1" Margin="10">
@@ -35,9 +35,9 @@
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0" Margin="20,10,10,10">
                                 <TextBlock Text="{Binding TypeAndName}" FontSize="14" FontWeight="Bold"/>
-                                <TextBlock Text="{Binding Director}" FontSize="14"/>
-                                <TextBlock Text="{Binding Phone}" FontSize="14"/>
-                                <TextBlock Text="{Binding Rating}" FontSize="14"/>
+                                <TextBlock Text="{Binding DirectorFIO}" FontSize="14"/>
+                                <TextBlock Text="{Binding PhoneFormatted}" FontSize="14"/>
+                                <TextBlock Text="{Binding RatingFormatted}" FontSize="14"/>
                             </StackPanel>
                             <TextBlock Grid.Column="1" Text="{Binding Percentage}" FontSize="14" VerticalAlignment="Top" Margin="10,10,40,10"/>
                         </Grid>
