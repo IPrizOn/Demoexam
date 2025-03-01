@@ -8,7 +8,7 @@ namespace DemoexamGUI.Views.Pages
 {
     public partial class PartnersPage : Page
     {
-        public List<Partner> PartnersList { get; set; }
+        public List<Partner> PartnersList;
 
         private List<PartnerProduct> partnerProductsList;
 
@@ -16,16 +16,21 @@ namespace DemoexamGUI.Views.Pages
         {
             InitializeComponent();
 
+            loadPartnersData();        
+        }
+
+        private void loadPartnersData()
+        {
             PartnersList = GetData.GetPartnersList();
+
             partnerProductsList = GetData.GetPartnerProductsList();
-      
 
             foreach (var partner in PartnersList)
             {
                 partner.Percentage = $"{calculateDiscount(partner)}%";
             }
 
-            DataContext = this;
+            PartnersListBox.ItemsSource = PartnersList;
         }
 
         private int calculateDiscount(Partner partner)
@@ -59,7 +64,7 @@ namespace DemoexamGUI.Views.Pages
             AddPartnerWindow addPartnerWindow = new AddPartnerWindow();
             if (addPartnerWindow.ShowDialog() == true)
             {
-                DataContext = this;
+                loadPartnersData();
             }
         }
 
@@ -70,7 +75,7 @@ namespace DemoexamGUI.Views.Pages
                 UpdatePartnerWindow addPartnerWindow = new UpdatePartnerWindow(selectedPartner);
                 if (addPartnerWindow.ShowDialog() == true)
                 {
-                   DataContext = this;
+                    loadPartnersData();
                 }
             }
 

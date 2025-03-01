@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoexamGUI.Views.Windows"
         mc:Ignorable="d"
-        Title="Изменение партнёра" Icon="/Resources/Мастер пол.ico" MinHeight="300" MinWidth="400" Height="300" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Изменение партнёра" Icon="/Resources/Мастер пол.ico" MinHeight="300" MinWidth="600" Height="300" Width="600" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -38,7 +38,7 @@
         <Label Grid.Row="4" Grid.Column="0" Content="ФИО директора:"/>
         <TextBox x:Name="TextBoxDirector" Grid.Row="4" Grid.Column="1"/>
 
-        <Label Grid.Row="5" Grid.Column="0" Content="Телефон:"/>
+        <Label Grid.Row="5" Grid.Column="0" Content="Телефон (+7):"/>
         <TextBox x:Name="TextBoxPhone" Grid.Row="5" Grid.Column="1"/>
 
         <Label Grid.Row="6" Grid.Column="0" Content="Email:"/>
@@ -47,6 +47,6 @@
         <Label Grid.Row="7" Grid.Column="0" Content="ИНН:"/>
         <TextBox x:Name="TextBoxINN" Grid.Row="7" Grid.Column="1"/>
 
-        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Content="Сохранить" Background="Wheat" FontSize="14" MinHeight="30" MinWidth="100" Click="SaveButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Content="Сохранить" Background="#F4E8D3" FontSize="14" MinHeight="30" MinWidth="100" Click="SaveButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </Grid>
 </Window>

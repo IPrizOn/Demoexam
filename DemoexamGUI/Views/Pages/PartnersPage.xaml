@@ -17,17 +17,17 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <Label Grid.Row="0" Content="Учёт партнёров" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Content="УЧЁТ ПАРТНЁРОВ" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         
         <DockPanel Grid.Row="0">
-            <Button DockPanel.Dock="Left" Content="Назад" FontSize="14" Background="Wheat" Margin="25,5,5,5" HorizontalAlignment="Left" MinHeight="30" MinWidth="60" Click="ButtonBack_Click"/>
-            <Button DockPanel.Dock="Right" Content="Добавить" FontSize="14" Background="Wheat" Margin="5,5,25,5" HorizontalAlignment="Right" MinHeight="30" MinWidth="80" Click="ButtonAddPartner_Click"/>
+            <Button DockPanel.Dock="Left" Content="Назад" FontSize="14" Background="#F4E8D3" Margin="25,5,5,5" HorizontalAlignment="Left" MinHeight="30" MinWidth="60" Click="ButtonBack_Click"/>
+            <Button DockPanel.Dock="Right" Content="Добавить" FontSize="14" Background="#F4E8D3" Margin="5,5,25,5" HorizontalAlignment="Right" MinHeight="30" MinWidth="80" Click="ButtonAddPartner_Click"/>
         </DockPanel>
 
         <ListBox x:Name="PartnersListBox" Grid.Row="1" ItemsSource="{Binding PartnersList}" SelectionChanged="ListPartners_SelectionChanged" HorizontalContentAlignment="Stretch" Margin="10">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="Black" BorderThickness="1" Margin="10">
+                    <Border BorderBrush="Black" BorderThickness="1" Margin="10,5,10,5">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>

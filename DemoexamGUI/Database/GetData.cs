@@ -12,7 +12,11 @@ namespace DemoexamGUI.Database
             using(var connection = Instance.GetConnection())
             {
                 connection.Open();
-                using (var cmd = new NpgsqlCommand("SELECT * FROM partner", connection))
+
+                using (var cmd = new NpgsqlCommand("SELECT * " +
+                    "FROM partner", 
+                    connection))
+                 
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
