@@ -9,12 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Npgsql" Version="9.0.2" />
+    <None Remove="Resources\Мастер пол.ico" />
+    <None Remove="Resources\Мастер пол.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\WIndows\" />
-    <Folder Include="Views\Pages\" />
+    <Resource Include="Resources\Мастер пол.ico" />
+    <Resource Include="Resources\Мастер пол.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="9.0.2" />
   </ItemGroup>
 
 </Project>

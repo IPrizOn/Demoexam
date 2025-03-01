@@ -5,14 +5,18 @@ namespace DemoexamGUI.Database
 {
     public class GetData
     {
-        public static List<Partner> GetPartners()
+        public static List<Partner> GetPartnersList()
         {
             var partnersList = new List<Partner>();
 
             using(var connection = Instance.GetConnection())
             {
                 connection.Open();
-                using (var cmd = new NpgsqlCommand("SELECT * FROM partner", connection))
+
+                using (var cmd = new NpgsqlCommand("SELECT * " +
+                    "FROM partner", 
+                    connection))
+                 
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -39,7 +43,7 @@ namespace DemoexamGUI.Database
             return partnersList;
         }
 
-        public static List<PartnerProduct> GetPartnerProduct()
+        public static List<PartnerProduct> GetPartnerProductsList()
         {
             var partnerProductsList = new List<PartnerProduct>();
 
