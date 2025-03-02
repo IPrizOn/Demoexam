@@ -5,14 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DemoexamGUI.Views.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="600"
+      d:DesignHeight="500" d:DesignWidth="750"
       Title="Главная">
 
     <Grid Background="White">
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,25,0,25">
-            <Image Source="/Resources/Мастер пол.png" Margin="0,0,0,25" MaxHeight="100" MaxWidth="100"/>
-            <Label Content="ГЛАВНАЯ" FontSize="14" FontWeight="Bold" Margin="0,0,0,50" HorizontalAlignment="Center"/>
-            <Button Content="Просмотр партнёров" Background="#F4E8D3" FontSize="14" Click="Button_Click" MinWidth="160" MinHeight="40" Margin="0,0,0,50"/>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Image Source="/Resources/Мастер пол.png" Margin="0,0,0,0" MaxHeight="100" MaxWidth="100"/>
+            <Label Content="ГЛАВНАЯ" FontSize="14" FontWeight="Bold" Margin="0,25,0,25" HorizontalAlignment="Center"/>
+            <Button Content="Просмотр партнёров" Background="#F4E8D3" FontSize="14" Click="ButtonPartners_Click" MinWidth="200" MinHeight="40" Margin="0,0,0,25"/>
+            <Button Content="Просмотр продаж партнёров" Background="#F4E8D3" FontSize="14" Click="ButtonPartnerProducts_Click" MinWidth="200" MinHeight="40" Margin="0,0,0,25"/>
         </StackPanel>
     </Grid>
 </Page>

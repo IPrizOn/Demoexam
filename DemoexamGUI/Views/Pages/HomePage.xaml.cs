@@ -10,9 +10,14 @@ namespace DemoexamGUI.Views.Pages
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void ButtonPartners_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new PartnersPage());
+        }
+
+        private void ButtonPartnerProducts_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PartnerProductsPage());
         }
     }
 }

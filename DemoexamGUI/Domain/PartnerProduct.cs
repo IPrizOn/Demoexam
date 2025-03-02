@@ -7,5 +7,9 @@
         public int PartnerId { get; set; }
         public int Count { get; set; }
         public DateTime SaleAt { get; set; }
+        
+        // Вспомогательные поля
+        public string Product { get; set; }
+        public string Partner { get; set; }
     }
 }

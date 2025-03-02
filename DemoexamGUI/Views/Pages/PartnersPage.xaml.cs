@@ -8,7 +8,7 @@ namespace DemoexamGUI.Views.Pages
 {
     public partial class PartnersPage : Page
     {
-        public List<Partner> PartnersList;
+        private List<Partner> partnersList;
 
         private List<PartnerProduct> partnerProductsList;
 
@@ -21,16 +21,16 @@ namespace DemoexamGUI.Views.Pages
 
         private void loadPartnersData()
         {
-            PartnersList = GetData.GetPartnersList();
+            partnersList = GetData.GetPartnersList();
 
             partnerProductsList = GetData.GetPartnerProductsList();
 
-            foreach (var partner in PartnersList)
+            foreach (var partner in partnersList)
             {
                 partner.Percentage = $"{calculateDiscount(partner)}%";
             }
 
-            PartnersListBox.ItemsSource = PartnersList;
+            PartnersListBox.ItemsSource = partnersList;
         }
 
         private int calculateDiscount(Partner partner)

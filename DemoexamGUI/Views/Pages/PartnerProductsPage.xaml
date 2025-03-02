@@ -1,0 +1,35 @@
+﻿<Page x:Class="DemoexamGUI.Views.Pages.PartnerProductsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DemoexamGUI.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="500" d:DesignWidth="750"
+      Title="Продажи партнёров">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Content="ПРОДАЖИ ПАРТНЁРОВ" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <DockPanel Grid.Row="0">
+            <Button DockPanel.Dock="Left" Content="Назад" FontSize="14" Background="#F4E8D3" Margin="25,5,5,5" HorizontalAlignment="Left" MinHeight="30" MinWidth="60" Click="ButtonBack_Click"/>
+        </DockPanel>
+
+        <DataGrid x:Name="PartnerProductsDataGrid" Grid.Row="1" ItemsSource="{Binding PartnerProductsList}" AutoGenerateColumns="False" Margin="10" FontSize="14">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Партнёр" Binding="{Binding Partner}" Width="35*" FontSize="14"/>
+                <DataGridTextColumn Header="Продукт" Binding="{Binding Product}" Width="75*" FontSize="14"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding Count}" Width="25*" FontSize="14"/>
+                <DataGridTextColumn Header="Дата продажи" Binding="{Binding SaleAt}" Width="45*" FontSize="14"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

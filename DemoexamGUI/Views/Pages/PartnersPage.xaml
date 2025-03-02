@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:DemoexamGUI.Views.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="600"
+      d:DesignHeight="500" d:DesignWidth="750"
       Title="Учёт партнёров">
 
     <Grid Background="White">
@@ -17,7 +17,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-        <Label Grid.Row="0" Content="УЧЁТ ПАРТНЁРОВ" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Grid.Row="0" Content="ПАРТНЁРЫ" FontSize="14" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         
         <DockPanel Grid.Row="0">
             <Button DockPanel.Dock="Left" Content="Назад" FontSize="14" Background="#F4E8D3" Margin="25,5,5,5" HorizontalAlignment="Left" MinHeight="30" MinWidth="60" Click="ButtonBack_Click"/>

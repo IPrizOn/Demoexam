@@ -15,6 +15,7 @@
         public string INN { get; set; }
         public int Rating { get; set; }
 
+        // Вспомогательные поля
         public string TypeAndName => $"{Type} | {Name}";
         public string DirectorFIO => $"{DirectorF} {DirectorI} {DirectorO}";
         public string PhoneFormatted => $"+7 {Phone}";
