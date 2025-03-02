@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DemoexamGUI"
         mc:Ignorable="d"
-        Title="" Icon="/Resources/Мастер пол.ico" Height="500" Width="600" MinHeight="500" MinWidth="600" WindowStartupLocation="CenterScreen">
+        Title="" Icon="/Resources/Мастер пол.ico" Height="500" Width="750" MinHeight="500" MinWidth="700" WindowStartupLocation="CenterScreen">
+    
     <Grid>
-        <Frame Name="frame" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

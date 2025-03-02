@@ -43,6 +43,70 @@ namespace DemoexamGUI.Database
             return partnersList;
         }
 
+        public static List<Product> GetProductsList()
+        {
+            var productsList = new List<Product>();
+
+            using (var connection = Instance.GetConnection())
+            {
+                connection.Open();
+
+                using (var cmd = new NpgsqlCommand("SELECT * " +
+                    "FROM product",
+                    connection))
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        productsList.Add(new Product()
+                        {
+                            Id = reader.GetInt32(0),
+                            TypeId = reader.GetInt32(1),
+                            Material = reader.GetString(2),
+                            Scheme = reader.GetString(3),
+                            ProductClass = reader.GetString(4),
+                            ThicknessMm = reader.GetInt32(5),
+                            Chamfered = reader.GetBoolean(6),
+                            Article = reader.GetString(7),
+                            MinCost = reader.GetInt32(8)
+                        });
+                    }
+                }
+            }
+
+            return productsList;
+        }
+
+        public static List<ProductType> GetProductTypesList()
+        {
+            var productTypesList = new List<ProductType>();
+
+            using (var connection = Instance.GetConnection())
+            {
+                connection.Open();
+
+                using (var cmd = new NpgsqlCommand("SELECT * " +
+                    "FROM product_type",
+                    connection))
+
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        productTypesList.Add(new ProductType()
+                        {
+                            Id = reader.GetInt32(0),
+                            Type = reader.GetString(1),
+                            TypeCoefficient = reader.GetInt32(2)
+                        });
+                    }
+                }
+            }
+
+            return productTypesList;
+        }
+
         public static List<PartnerProduct> GetPartnerProductsList()
         {
             var partnerProductsList = new List<PartnerProduct>();
@@ -50,7 +114,9 @@ namespace DemoexamGUI.Database
             using (var connection = Instance.GetConnection())
             {
                 connection.Open();
-                using (var cmd = new NpgsqlCommand("SELECT * FROM partner_product", connection))
+                using (var cmd = new NpgsqlCommand("SELECT * " +
+                    "FROM partner_product", 
+                    connection))
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())

@@ -11,5 +11,9 @@
         public bool Chamfered { get; set; }
         public string Article { get; set; }
         public int MinCost { get; set; }
+
+        // Вспомогательные поля
+        public string Type { get; set; }
+        public string ProductName => $"{Type} {Material} {Scheme}";
     }
 }
